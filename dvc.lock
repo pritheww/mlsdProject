@@ -1,0 +1,49 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: py -3.11 preprocess.py
+    outs:
+    - path: data/x_train.npy
+      hash: md5
+      md5: 392c63904d2b366a65c4b6c4e901323a
+      size: 3140796
+    - path: data/x_val.npy
+      hash: md5
+      md5: e8401637b6d7fa17b6282a8ed999d8b3
+      size: 796118
+    - path: data/y_train.npy
+      hash: md5
+      md5: aa3a582853282aacd15b36a51d1f38c9
+      size: 71984
+    - path: data/y_val.npy
+      hash: md5
+      md5: df7c9c95d02e5e8944044805ab2fd921
+      size: 18096
+  train:
+    cmd: py -3.11 train.py
+    deps:
+    - path: data/x_train.npy
+      hash: md5
+      md5: 392c63904d2b366a65c4b6c4e901323a
+      size: 3140796
+    - path: data/x_val.npy
+      hash: md5
+      md5: e8401637b6d7fa17b6282a8ed999d8b3
+      size: 796118
+    - path: data/y_train.npy
+      hash: md5
+      md5: aa3a582853282aacd15b36a51d1f38c9
+      size: 71984
+    - path: data/y_val.npy
+      hash: md5
+      md5: df7c9c95d02e5e8944044805ab2fd921
+      size: 18096
+    - path: train.py
+      hash: md5
+      md5: 073277b6cb954a833a051b175e40a4b6
+      size: 6849
+    outs:
+    - path: model/model.keras
+      hash: md5
+      md5: a899a645db3434eb574f5d4a6308c6a9
+      size: 6036984

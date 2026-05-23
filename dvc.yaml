@@ -1,0 +1,20 @@
+stages:
+
+  preprocess:
+    cmd: py -3.11 preprocess.py
+    outs:
+      - data/x_train.npy
+      - data/y_train.npy
+      - data/x_val.npy
+      - data/y_val.npy
+
+  train:
+    cmd: py -3.11 train.py
+    deps:
+      - train.py
+      - data/x_train.npy
+      - data/y_train.npy
+      - data/x_val.npy
+      - data/y_val.npy
+    outs:
+      - model/model.keras
