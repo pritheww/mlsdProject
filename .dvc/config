@@ -1,4 +1,4 @@
 [core]
-    remote = localstorage
-['remote "localstorage"']
-    url = ../dvc-storage
+    remote = myremote
+['remote "myremote"']
+    url = s3://mlsd-dvc-storage/data

@@ -30,6 +30,13 @@ jobs:
       run: |
         pip install dvc
 
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AKIAZZIM3IVRNL7HORX4 }}
+        aws-secret-access-key: ${{ secrets.Ovb2NzATRbYRbtJW3KWpy6OzNRYcDw7c7cxKra63 }}
+        aws-region: ${{ secrets.ap-south-1 }}
+
     - name: Pull Dataset
       run: |
         dvc pull
