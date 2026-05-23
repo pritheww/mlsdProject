@@ -2,7 +2,7 @@ from tensorflow.keras.datasets import reuters
 import numpy as np
 import os
 
-vocab_size = 10000
+vocab_size = 5000
 
 os.makedirs("data", exist_ok=True)
 

@@ -46,3 +46,15 @@ jobs:
       with:
         name: trained-model
         path: model/model.keras
+    
+    - name: Upload MLflow Logs
+      uses: actions/upload-artifact@v4
+      with:
+        name: mlflow-logs
+        path: mlruns/
+
+    - name: Deploy Model to S3
+      run: |
+        aws s3 cp model/model.keras s3://YOUR_BUCKET_NAME/production-model/model.keras
+    
+    

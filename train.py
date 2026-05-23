@@ -10,7 +10,7 @@ import mlflow
 import mlflow.keras
 
 
-vocab_size = 10000
+vocab_size = 5000
 maxlen = 200
 embed_dim = 32
 num_heads = 4
@@ -111,7 +111,7 @@ def build_sandwich_model(num_layers):
     model = keras.Model(inputs=inputs, outputs=outputs)
     return model
 
-layer_settings = [3, 5, 7]
+layer_settings = [3]
 results = {}
 
 for n_layers in layer_settings:
@@ -130,7 +130,7 @@ for n_layers in layer_settings:
     history = model.fit(
         x_train, y_train,
         batch_size=32,
-        epochs=10, #requirment 7
+        epochs=5, #requirment 7
         validation_data=(x_val, y_val),
         verbose=1
     )
@@ -186,8 +186,6 @@ previous_assignment_scores = {
 
 all_scores = previous_assignment_scores.copy()
 all_scores[f"Transf (3 layers)"] = results[3]['f1']
-all_scores[f"Transf (5 layers)"] = results[5]['f1']
-all_scores[f"Transf (7 layers)"] = results[7]['f1']
 
 # Plotting
 names = list(all_scores.keys())
