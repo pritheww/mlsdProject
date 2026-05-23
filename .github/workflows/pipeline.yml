@@ -55,6 +55,6 @@ jobs:
 
     - name: Deploy Model to S3
       run: |
-        aws s3 cp model/model.keras s3://YOUR_BUCKET_NAME/production-model/model.keras
+        aws s3 cp model/model.keras s3://cd-bucketmlsd/production-model/model.keras
     
     
