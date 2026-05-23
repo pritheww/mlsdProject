@@ -1,7 +1,7 @@
 stages:
 
   preprocess:
-    cmd: py -3.11 preprocess.py
+    cmd: python preprocess.py
     outs:
       - data/x_train.npy
       - data/y_train.npy
@@ -9,7 +9,7 @@ stages:
       - data/y_val.npy
 
   train:
-    cmd: py -3.11 train.py
+    cmd: python train.py
     deps:
       - train.py
       - data/x_train.npy
