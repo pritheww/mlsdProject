@@ -26,10 +26,6 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: Install DVC
-      run: |
-        pip install dvc
-
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
